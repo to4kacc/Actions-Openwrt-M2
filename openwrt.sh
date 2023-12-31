@@ -1,5 +1,5 @@
 # aliyundrive-webdav
-git clone https://github.com/messense/aliyundrive-webdav.git -b main package/apps/aliyundrive-webdav
+# git clone https://github.com/messense/aliyundrive-webdav.git -b main package/apps/aliyundrive-webdav
 
 # wechatpush
 git clone https://github.com/tty228/luci-app-wechatpush.git package/apps/luci-app-wechatpush
@@ -36,7 +36,7 @@ sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='$(date +"%Y-%m-%d")-Build'
 sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.config
 
 # 修改密码
-sed -i '/root/c\root:$1$3INQuMmE$eyGe2r1bt96nb2Oqm.oaQ1:19563:0:99999:7:::' package/base-files/files/etc/shadow
+# sed -i '/root/c\root:$1$3INQuMmE$eyGe2r1bt96nb2Oqm.oaQ1:19563:0:99999:7:::' package/base-files/files/etc/shadow
 
 # 修改IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -74,6 +74,9 @@ sed -i 's|admin/services|admin/system|g' feeds/luci/applications/luci-app-ttyd/r
 sed -i 's|admin/status|admin/vpn|g' feeds/luci/protocols/luci-proto-wireguard/root/usr/share/luci/menu.d/luci-proto-wireguard.json
 
 # 修改插件名字
-sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' `grep "阿里云盘 WebDAV" -rl ./`
+# sed -i 's/"阿里云盘 WebDAV"/"阿里云盘"/g' `grep "阿里云盘 WebDAV" -rl ./`
 sed -i 's/"CPU 性能优化调节"/"性能优化"/g' $(grep "CPU 性能优化调节设置" -rl ./)
 sed -i 's/"动态 DNS(DDNS)"/"动态 DNS"/g' $(grep "动态 DNS(DDNS)" -rl ./)
+rm -rf package/helloworld
+git submodule add -f --name helloworld https://github.com/fw876/helloworld.git package/helloworld
+git submodule update --remote package/helloworld
