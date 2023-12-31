@@ -16,8 +16,8 @@ on:
     inputs:
 
 env:
-  REPO_URL: https://github.com/try496/openwrt.git
-  REPO_BRANCH: ipq6000
+  REPO_URL: https://github.com/breeze303/ipq60xx-6.1.git
+  REPO_BRANCH: ipq60xx-devel_nss
   CONFIG_FILE: config/zn_m2_opemwrt.config
   DIY_SCRIPT: openwrt.sh
   UPLOAD_FIRMWARE: true
